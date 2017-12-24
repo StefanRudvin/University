@@ -1,0 +1,16 @@
+Taxonomy consists of 12 entries
+            of which 8 are completely defined
+
+All entries are in format:
+"entry" {n: parent_1 ... parent_n} {m: child_1 child_m}
+
+"universalRole" {0:} {1: "emptyRole"}
+("http://www.cs4021/bookstore.owl#hasAuthor"="-http://www.cs4021/bookstoreTest1.owl#hasWritten") {0:} {1: "emptyRole"}
+("http://www.cs4021/bookstoreTest1.owl#hasWritten"="-http://www.cs4021/bookstore.owl#hasAuthor") {0:} {1: "emptyRole"}
+"http://www.cs4021/bookstore.owl#hasBook" {0:} {1: "emptyRole"}
+"-http://www.cs4021/bookstore.owl#hasBook" {0:} {1: "emptyRole"}
+("http://www.cs4021/bookstore.owl#hasBuyer"="-http://www.cs4021/bookstoreTest1.owl#hasMadePurchase") {0:} {1: "emptyRole"}
+("http://www.cs4021/bookstoreTest1.owl#hasMadePurchase"="-http://www.cs4021/bookstore.owl#hasBuyer") {0:} {1: "emptyRole"}
+"http://www.cs4021/bookstore.owl#hasSubject" {0:} {1: "emptyRole"}
+"-http://www.cs4021/bookstore.owl#hasSubject" {0:} {1: "emptyRole"}
+"emptyRole" {9: "universalRole" "http://www.cs4021/bookstore.owl#hasAuthor" "http://www.cs4021/bookstoreTest1.owl#hasWritten" "http://www.cs4021/bookstore.owl#hasBook" "-http://www.cs4021/bookstore.owl#hasBook" "http://www.cs4021/bookstore.owl#hasBuyer" "http://www.cs4021/bookstoreTest1.owl#hasMadePurchase" "http://www.cs4021/bookstore.owl#hasSubject" "-http://www.cs4021/bookstore.owl#hasSubject"} {0:}

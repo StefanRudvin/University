@@ -1,0 +1,14 @@
+Taxonomy consists of 6 entries
+            of which 6 are completely defined
+
+All entries are in format:
+"entry" {n: parent_1 ... parent_n} {m: child_1 child_m}
+
+"universalRole" {0:} {1: "emptyRole"}
+"http://www.cs4021/bookstore.owl#hasName" {0:} {1: "emptyRole"}
+"-http://www.cs4021/bookstore.owl#hasName" {0:} {1: "emptyRole"}
+"http://www.cs4021/bookstore.owl#hasTitle" {0:} {1: "emptyRole"}
+"-http://www.cs4021/bookstore.owl#hasTitle" {0:} {1: "emptyRole"}
+"http://www.cs4021/bookstore.owl#subjectName" {0:} {1: "emptyRole"}
+"-http://www.cs4021/bookstore.owl#subjectName" {0:} {1: "emptyRole"}
+"emptyRole" {7: "universalRole" "http://www.cs4021/bookstore.owl#hasName" "-http://www.cs4021/bookstore.owl#hasName" "http://www.cs4021/bookstore.owl#hasTitle" "-http://www.cs4021/bookstore.owl#hasTitle" "http://www.cs4021/bookstore.owl#subjectName" "-http://www.cs4021/bookstore.owl#subjectName"} {0:}

@@ -1,0 +1,24 @@
+Created Dir myfirstdir.
+Created Dir myseconddir.
+Moved to dir Index: 5
+myfopen creating directories for: '/myfirstdir/myseconddir/mythirddir/ , testfile2.txt'
+Dir myfirstdir already exists, no need to create it.
+Dir myseconddir already exists, no need to create it.
+Created Dir mythirddir.
+Moved to dir Index: 7
+Printing results from calling mylistdir("/myfirstdir/myseconddir": --- 
+testfile.txt
+mythirddir
+
+Deleting file: testfile.txt
+Deleting file: testfile2.txt
+Printing results from calling mylistdir("/myfirstdir/myseconddir": --- 
+
+
+
+
+Closing, Final length of file: 0
+Amount of chars read: 0
+
+Closing, Final length of file: 0
+Amount of chars read: 0

@@ -1,0 +1,102 @@
+/* Stylesheet for all views: About, Admincontrols, create, home, edit, profile */
+
+
+/* Comment out background-image for better performance */
+body{
+    background-image:url(https://wallpaperscraft.com/image/castle_mountains_wood_trees_bridge_lake_scotland_42447_3840x2160.jpg);
+    
+    max-width: 1200px;
+    background-repeat: no-repeat;
+}
+
+/* Container holds all elements of the page. Makes container 800px wide and centered. */
+#container {
+    margin-top:20px;
+    background-color:white;
+    width: 800px;
+    height:auto;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/* Content holds the login, nav and main views. */
+
+#content {
+    padding: 10px;
+    
+    box-shadow: 2px 3px 11px 0px rgba(0,0,0,0.75);
+    
+}
+
+/* Makes links not underlined and color:black */
+a {
+    text-decoration: none;
+    color:#000000;
+    text-shadow: 0.75px 0.75px #BDBDBD;
+}
+    
+/*Changes header colour and alignment */
+
+/* For the box-shadow I used an online shadow generator found here: "http://www.cssmatic.com/box-shadow" */
+
+#header {
+    background-color:#FF9800;
+    color: white;
+    text-align:center;
+    padding:10px;
+    text-shadow: 2px 2px #000000;
+    font-family: 'Roboto', sans-serif;font-weight: 400;
+    font-size: 1.5em;
+    box-shadow: 2px 3px 11px 0px rgba(0,0,0,0.75);
+}
+
+/* #nav contains navigation and login lists */
+
+#nav {
+    width: 200px;
+    height:auto;
+    float: left;
+    font-family: 'Roboto', sans-serif;
+    text-align:left;
+    box-shadow: 3px 3px 11px 0px rgba(0,0,0,0.75);
+    background-color:#9E9E9E;
+}
+
+/* Makes the current link in the navigation tab in bold */
+.selected {
+    font-weight:bold;
+}
+
+#main {
+    float: right;
+    font-family: 'Roboto', sans-serif;
+    word-wrap: break-word;
+    width:550px;
+    margin-left:10px;
+}
+
+#footer{
+    clear:both;
+    color:white;
+    text-align:right;
+    background-color:#009688;
+    padding:10px;
+    text-shadow: 1px 1px #000000;
+    font-size: 1.1em;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 2px 3px 11px 0px rgba(0,0,0,0.75);
+    margin-top:30px;
+}
+
+/* #nav contains navigation and login lists */
+
+#container img 
+{
+ max-width: 500px;
+ max-height: 500px;
+ padding:10px;
+ box-shadow: 2px 3px 11px 0px rgba(0,0,0,0.75);
+}
+
+
+

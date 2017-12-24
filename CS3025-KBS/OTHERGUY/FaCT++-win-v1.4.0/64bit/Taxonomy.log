@@ -1,0 +1,62 @@
+Totally 0 subsumption tests was made
+Among them 0 (0%) successfull
+Besides that 0 successfull and 45 unsuccessfull subsumption tests were cached
+Sorted reasoning deals with 60 non-subsumptions
+There were made 184 search calls
+There were made 567 Sub calls, of which 255 non-trivial
+Current efficiency (wrt Brute-force) is 2162
+Taxonomy consists of 47 entries
+            of which 17 are completely defined
+
+All entries are in format:
+"entry" {n: parent_1 ... parent_n} {m: child_1 child_m}
+
+"TOP" {0:} {3: "http://www.cs4021/bookstore.owl#BookSubject" "http://www.cs4021/bookstore.owl#Book" "http://www.cs4021/bookstore.owl#Purchase"}
+"http://www.cs4021/bookstore.owl#BookSubject" {1: "TOP"} {3: "http://www.cs4021/bookstore.owl#Fiction" "http://www.cs4021/bookstore.owl#nonFiction" "http://www.cs4021/bookstore.owl#subject"}
+"http://www.cs4021/bookstore.owl#Fiction" {1: "http://www.cs4021/bookstore.owl#BookSubject"} {3: "http://www.cs4021/bookstore.owl#SciFi" "http://www.cs4021/bookstore.owl#Fantasy" "http://www.cs4021/bookstore.owl#fiction"}
+"http://www.cs4021/bookstore.owl#SciFi" {1: "http://www.cs4021/bookstore.owl#Fiction"} {4: "http://www.cs4021/bookstore.owl#Alien" "http://www.cs4021/bookstore.owl#Cyberpunk" "http://www.cs4021/bookstore.owl#Space_drama" "http://www.cs4021/bookstore.owl#scifi"}
+"http://www.cs4021/bookstore.owl#Alien" {1: "http://www.cs4021/bookstore.owl#SciFi"} {1: "http://www.cs4021/bookstore.owl#alien"}
+"http://www.cs4021/bookstore.owl#Book" {1: "TOP"} {10: "http://www.cs4021/bookstore.owl#Twin_Tower" "http://www.cs4021/bookstore.owl#Fly_Fishing" "http://www.cs4021/bookstore.owl#Moby_Dick" "http://www.cs4021/bookstore.owl#A_Brief_History_of_Time" "http://www.cs4021/bookstore.owl#the_Hobbit" "http://www.cs4021/bookstore.owl#Dune" "http://www.cs4021/bookstore.owl#Fellow_of_the_Ring" "http://www.cs4021/bookstore.owl#Dune2" "http://www.cs4021/bookstore.owl#The_Emperors_New_Mind" "http://www.cs4021/bookstore.owl#Return_of_the_King"}
+"http://www.cs4021/bookstore.owl#Cyberpunk" {1: "http://www.cs4021/bookstore.owl#SciFi"} {1: "http://www.cs4021/bookstore.owl#cyberpunk"}
+"http://www.cs4021/bookstore.owl#Fantasy" {1: "http://www.cs4021/bookstore.owl#Fiction"} {1: "http://www.cs4021/bookstore.owl#fantasy"}
+"http://www.cs4021/bookstore.owl#nonFiction" {1: "http://www.cs4021/bookstore.owl#BookSubject"} {3: "http://www.cs4021/bookstore.owl#Fishing" "http://www.cs4021/bookstore.owl#Science" "http://www.cs4021/bookstore.owl#nonfiction"}
+"http://www.cs4021/bookstore.owl#Fishing" {1: "http://www.cs4021/bookstore.owl#nonFiction"} {3: "http://www.cs4021/bookstore.owl#Ocean_fishing" "http://www.cs4021/bookstore.owl#River_fishing" "http://www.cs4021/bookstore.owl#fishing"}
+"http://www.cs4021/bookstore.owl#Ocean_fishing" {1: "http://www.cs4021/bookstore.owl#Fishing"} {1: "http://www.cs4021/bookstore.owl#oceanfishing"}
+"http://www.cs4021/bookstore.owl#Science" {1: "http://www.cs4021/bookstore.owl#nonFiction"} {3: "http://www.cs4021/bookstore.owl#Popular_science" "http://www.cs4021/bookstore.owl#Scientific_literature" "http://www.cs4021/bookstore.owl#science"}
+"http://www.cs4021/bookstore.owl#Popular_science" {1: "http://www.cs4021/bookstore.owl#Science"} {1: "http://www.cs4021/bookstore.owl#popularscience"}
+"http://www.cs4021/bookstore.owl#Purchase" {1: "TOP"} {7: "http://www.cs4021/bookstore.owl#Purchase_6" "http://www.cs4021/bookstore.owl#Purchase_5" "http://www.cs4021/bookstore.owl#Purchase_4" "http://www.cs4021/bookstore.owl#Purchase_1" "http://www.cs4021/bookstore.owl#Purchase_38" "http://www.cs4021/bookstore.owl#Purchase_17" "http://www.cs4021/bookstore.owl#Purchase_39"}
+"http://www.cs4021/bookstore.owl#River_fishing" {1: "http://www.cs4021/bookstore.owl#Fishing"} {1: "http://www.cs4021/bookstore.owl#riverfishing"}
+"http://www.cs4021/bookstore.owl#Scientific_literature" {1: "http://www.cs4021/bookstore.owl#Science"} {1: "http://www.cs4021/bookstore.owl#scientific_literature"}
+"http://www.cs4021/bookstore.owl#Space_drama" {1: "http://www.cs4021/bookstore.owl#SciFi"} {1: "http://www.cs4021/bookstore.owl#spacedrama"}
+"http://www.cs4021/bookstore.owl#subject" {1: "http://www.cs4021/bookstore.owl#BookSubject"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#alien" {1: "http://www.cs4021/bookstore.owl#Alien"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#fishing" {1: "http://www.cs4021/bookstore.owl#Fishing"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#Twin_Tower" {1: "http://www.cs4021/bookstore.owl#Book"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#fantasy" {1: "http://www.cs4021/bookstore.owl#Fantasy"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#fiction" {1: "http://www.cs4021/bookstore.owl#Fiction"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#riverfishing" {1: "http://www.cs4021/bookstore.owl#River_fishing"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#Purchase_6" {1: "http://www.cs4021/bookstore.owl#Purchase"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#Fly_Fishing" {1: "http://www.cs4021/bookstore.owl#Book"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#cyberpunk" {1: "http://www.cs4021/bookstore.owl#Cyberpunk"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#Purchase_5" {1: "http://www.cs4021/bookstore.owl#Purchase"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#Moby_Dick" {1: "http://www.cs4021/bookstore.owl#Book"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#Purchase_4" {1: "http://www.cs4021/bookstore.owl#Purchase"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#popularscience" {1: "http://www.cs4021/bookstore.owl#Popular_science"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#A_Brief_History_of_Time" {1: "http://www.cs4021/bookstore.owl#Book"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#science" {1: "http://www.cs4021/bookstore.owl#Science"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#the_Hobbit" {1: "http://www.cs4021/bookstore.owl#Book"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#oceanfishing" {1: "http://www.cs4021/bookstore.owl#Ocean_fishing"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#Purchase_1" {1: "http://www.cs4021/bookstore.owl#Purchase"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#Purchase_38" {1: "http://www.cs4021/bookstore.owl#Purchase"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#Dune" {1: "http://www.cs4021/bookstore.owl#Book"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#scifi" {1: "http://www.cs4021/bookstore.owl#SciFi"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#spacedrama" {1: "http://www.cs4021/bookstore.owl#Space_drama"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#Purchase_17" {1: "http://www.cs4021/bookstore.owl#Purchase"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#Purchase_39" {1: "http://www.cs4021/bookstore.owl#Purchase"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#Fellow_of_the_Ring" {1: "http://www.cs4021/bookstore.owl#Book"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#nonfiction" {1: "http://www.cs4021/bookstore.owl#nonFiction"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#Dune2" {1: "http://www.cs4021/bookstore.owl#Book"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#The_Emperors_New_Mind" {1: "http://www.cs4021/bookstore.owl#Book"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#Return_of_the_King" {1: "http://www.cs4021/bookstore.owl#Book"} {1: "BOTTOM"}
+"http://www.cs4021/bookstore.owl#scientific_literature" {1: "http://www.cs4021/bookstore.owl#Scientific_literature"} {1: "BOTTOM"}
+"BOTTOM" {31: "http://www.cs4021/bookstore.owl#subject" "http://www.cs4021/bookstore.owl#alien" "http://www.cs4021/bookstore.owl#fishing" "http://www.cs4021/bookstore.owl#Twin_Tower" "http://www.cs4021/bookstore.owl#fantasy" "http://www.cs4021/bookstore.owl#fiction" "http://www.cs4021/bookstore.owl#riverfishing" "http://www.cs4021/bookstore.owl#Purchase_6" "http://www.cs4021/bookstore.owl#Fly_Fishing" "http://www.cs4021/bookstore.owl#cyberpunk" "http://www.cs4021/bookstore.owl#Purchase_5" "http://www.cs4021/bookstore.owl#Moby_Dick" "http://www.cs4021/bookstore.owl#Purchase_4" "http://www.cs4021/bookstore.owl#popularscience" "http://www.cs4021/bookstore.owl#A_Brief_History_of_Time" "http://www.cs4021/bookstore.owl#science" "http://www.cs4021/bookstore.owl#the_Hobbit" "http://www.cs4021/bookstore.owl#oceanfishing" "http://www.cs4021/bookstore.owl#Purchase_1" "http://www.cs4021/bookstore.owl#Purchase_38" "http://www.cs4021/bookstore.owl#Dune" "http://www.cs4021/bookstore.owl#scifi" "http://www.cs4021/bookstore.owl#spacedrama" "http://www.cs4021/bookstore.owl#Purchase_17" "http://www.cs4021/bookstore.owl#Purchase_39" "http://www.cs4021/bookstore.owl#Fellow_of_the_Ring" "http://www.cs4021/bookstore.owl#nonfiction" "http://www.cs4021/bookstore.owl#Dune2" "http://www.cs4021/bookstore.owl#The_Emperors_New_Mind" "http://www.cs4021/bookstore.owl#Return_of_the_King" "http://www.cs4021/bookstore.owl#scientific_literature"} {0:}

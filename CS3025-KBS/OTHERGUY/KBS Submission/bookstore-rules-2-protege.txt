@@ -1,0 +1,27 @@
+(mapclass http://www.cs4021/bookstore.owl#Person)
+
+(mapclass http://www.cs4021/bookstore.owl#Book)
+
+(mapclass http://www.cs4021/bookstore.owl#Purchase)
+
+(mapclass http://www.cs4021/bookstore.owl#Author)
+
+(mapclass http://www.cs4021/bookstore.owl#Recommendation)
+
+(defrule recommend-2
+
+		(object (is-a http://www.cs4021/bookstore.owl#Purchase) (OBJECT ?PurchaseObject1) (http://www.cs4021/bookstore.owl#hasBook ?Book1) (http://www.cs4021/bookstore.owl#hasBuyer $? ?Buyer1 $?))
+		(object (is-a http://www.cs4021/bookstore.owl#Book) (OBJECT ?Book1) (http://www.cs4021/bookstore.owl#hasTitle ?BookTitle1) (http://www.cs4021/bookstore.owl#hasAuthor ?Author1))
+		(object (is-a http://www.cs4021/bookstore.owl#Customer) (OBJECT ?Buyer1) (http://www.cs4021/bookstore.owl#hasName ?BuyerName1))
+		(object (is-a http://www.cs4021/bookstore.owl#Author) (OBJECT ?Author1) (http://www.cs4021/bookstore.owl#hasName ?AuthorName1))
+		
+		(object (is-a http://www.cs4021/bookstore.owl#Book) (OBJECT ?Book2) (http://www.cs4021/bookstore.owl#hasTitle ?BookTitle2) (http://www.cs4021/bookstore.owl#hasAuthor ?Author1))
+		
+		(not (object (is-a http://www.cs4021/bookstore.owl#Purchase) (http://www.cs4021/bookstore.owl#hasBuyer ?Buyer1) (http://www.cs4021/bookstore.owl#hasBook ?Book2)))
+		(not (object (is-a http://www.cs4021/bookstore.owl#Recommendation) (http://www.cs4021/bookstore.owl#hasBuyer ?Buyer1) (http://www.cs4021/bookstore.owl#hasBook ?Book2)))
+
+	=>
+
+	(make-instance of http://www.cs4021/bookstore.owl#Recommendation (http://www.cs4021/bookstore.owl#hasBuyer ?Buyer1) (http://www.cs4021/bookstore.owl#hasBook ?Book2))
+	(printout t "Recommend book by " ?AuthorName1 " to " ?BuyerName1 " such as " ?BookTitle2 crlf)
+)

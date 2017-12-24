@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <title> Scotland Tourist Destinations </title>
+    
+    <!--<link rel="stylesheet" type="text/css" href="/app/assets/stylesheets/style.css" /> -->
+
+    <link rel="stylesheet" href="/style.css">
+    <link rel='stylesheet' type="/roboto.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    
+    <div id="container">
+        <div id="header">
+            <h1> Scotland Tourist Destinations </h1>
+            
+        </div>
+        <div id="content">
+            <div id="nav">
+                <ul>
+                    <h2>Navigation</h2>
+                    <b>Menu</b><br>
+                    <li><a href="/">Home</a><br></li>
+                    <li><a href="/create">Create</a><br></li>
+                    <li><a class="selected" href="/about">About</a><br></li>
+                    <li><a href="/edit">Edit</a><br></li>
+                
+                
+                <h2>Login</h2>
+                    <% if $credentials %>
+                    <% if $credentials[0] != '' %>
+                        <li>Logged in as <a href="/user/<%= $credentials [0] %>"><b><%= $credentials[0] %></li></b></a><br><br>
+                        <li><a href="/logout">Logout</a><br><br></li>
+                        <% if $credentials[0] == "Admin" %>
+                            <br><li><a href="/admincontrols">Admin Controls</a></li><br>
+                        <% end %>
+                    <% else %>
+                        <li><a href="/login">Login</a></li><br>
+                    <%end %>
+                    <% else %>
+                    <li><a href="/login">Login</a></li><br>
+                    <% end %>
+                    <br><br>
+                </ul>
+                
+            </div>
+
+            <div id="main">
+                
+                
+                <h2>About us</h2>
+                <p>This wiki was created by Stefan Rudvin </p>
+                
+            </div>
+            <div id="footer">
+            © Stefan Rudvin 51549217
+            </div>
+        
+        </div>
+        
+    </div>
+        
+    
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+(mapclass Person)
+
+(mapclass Book)
+
+(mapclass Purchase)
+
+(mapclass Recommendation)
+
+(defrule recommend-3
+
+		(object (is-a Purchase) (OBJECT ?PurchaseObject1) (hasBook ?Book1) (hasBuyer $? ?Buyer1 $?))
+		(object (is-a Book) (OBJECT ?Book1) (hasTitle ?BookTitle1) (hasSubject ?Subject1))
+		(object (is-a Customer) (OBJECT ?Buyer1) (hasName ?BuyerName1))
+		
+		(object (is-a Book) (OBJECT ?Book2) (hasTitle ?BookTitle2) (hasSubject ?Subject1))
+
+		(not (object (is-a Purchase) (hasBuyer ?Buyer1) (hasBook ?Book2)))
+		(not (object (is-a Recommendation) (hasBuyer ?Buyer1) (hasBook ?Book2)))
+
+	=>
+		
+		(make-instance of Recommendation (hasBuyer ?Buyer1) (hasBook ?Book2))
+		(printout t ?BuyerName1 " suggest " ?BookTitle2 crlf)
+)

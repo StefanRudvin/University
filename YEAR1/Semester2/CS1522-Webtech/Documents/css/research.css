@@ -1,0 +1,57 @@
+
+  html,body{
+    margin:0;
+    padding:0;
+    height:100%;
+    width: 100%;
+  }
+
+  img {
+      width: 200px;
+      margin: auto;
+      border-radius: 90%;
+      overflow: hidden;
+      -webkit-transition: all 0.25s;
+     -moz-transition: all 0.25s;
+       -o-transition: all 0.25s;
+      -ms-transition: all 0.25s;
+          transition: all 0.25s;
+      -webkit-transition-property: -webkit-transform;
+          -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+        filter: grayscale(100%);
+  }
+  img:hover {
+    -webkit-filter: grayscale(1%); /* Chrome, Safari, Opera */
+    filter: grayscale(1%);
+    border: solid 1px #CCC; -moz-box-shadow: 2px 2px 2px #999; -webkit-box-shadow: 2px 2px 2px #999; box-shadow: 2px 2px 2px #999;
+  }
+
+  .selected{
+    -webkit-filter: grayscale(0%); /* Chrome, Safari, Opera */
+    filter: grayscale(0%);
+  }
+
+  .footer {
+    background-color: #1b1b1b;
+    height: 60px;
+    text-align: right;
+    padding-top: 20px;
+    padding-right:30px;
+  }
+  .jumbotron{
+      background-color:#2E2D88;
+      color:white;
+      margin-top: 60px;
+      padding-left: 15px;
+  }
+  .tab-content {
+      border-left: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      padding: 10px;
+  }
+  .nav-tabs {
+  }
+  .researchers{
+    margin-bottom: 20px;
+  }

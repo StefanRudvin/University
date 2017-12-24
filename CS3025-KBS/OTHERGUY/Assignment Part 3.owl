@@ -1,0 +1,679 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns="http://www.cs4021/bookstore.owl#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+  xml:base="http://www.cs4021/bookstore.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Hobbies">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Non_Fiction"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Purchase"/>
+  <owl:Class rdf:ID="Author">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasWritten"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Person"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Chess">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Sports"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Gardening">
+    <rdfs:subClassOf rdf:resource="#Hobbies"/>
+  </owl:Class>
+  <owl:Class rdf:ID="BookSubject"/>
+  <owl:Class rdf:about="#Non_Fiction">
+    <rdfs:subClassOf rdf:resource="#BookSubject"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Book"/>
+  <owl:Class rdf:ID="Adult">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Fiction"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Fiction">
+    <rdfs:subClassOf rdf:resource="#BookSubject"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Childrens">
+    <rdfs:subClassOf rdf:resource="#Fiction"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Recommendation"/>
+  <owl:Class rdf:ID="Customer">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasMadePurchase"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Person"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Fishing">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Sports"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Football">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Sports"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Golf">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Sports"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Teens">
+    <rdfs:subClassOf rdf:resource="#Fiction"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Computing">
+    <rdfs:subClassOf rdf:resource="#Hobbies"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Sports">
+    <rdfs:subClassOf rdf:resource="#Non_Fiction"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="hasAuthor">
+    <rdfs:range rdf:resource="#Person"/>
+    <rdfs:domain rdf:resource="#Book"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#hasWritten"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasMadePurchase">
+    <rdfs:range rdf:resource="#Purchase"/>
+    <rdfs:domain rdf:resource="#Person"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasWritten">
+    <rdfs:domain rdf:resource="#Person"/>
+    <owl:inverseOf rdf:resource="#hasAuthor"/>
+    <rdfs:range rdf:resource="#Book"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasSubject">
+    <rdfs:domain rdf:resource="#Book"/>
+    <rdfs:range rdf:resource="#BookSubject"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasBook">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#Book"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Purchase"/>
+          <owl:Class rdf:about="#Recommendation"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="hasTitle">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Book"/>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:ID="hasName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Person"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasBuyer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Person"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Purchase"/>
+          <owl:Class rdf:about="#Recommendation"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <Recommendation rdf:ID="Recommendation_109">
+    <hasBuyer>
+      <Customer rdf:ID="Anna">
+        <hasMadePurchase>
+          <Purchase rdf:ID="Purchase_52">
+            <hasBuyer rdf:resource="#Anna"/>
+            <hasBook>
+              <Book rdf:ID="Chess_for_Kids">
+                <hasSubject rdf:resource="#ChessSubject"/>
+                <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Chess for Kids: How to Play and Win</hasTitle>
+                <hasAuthor>
+                  <Author rdf:ID="Richard_James">
+                    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Richard James</hasName>
+                    <hasWritten rdf:resource="#Chess_for_Kids"/>
+                  </Author>
+                </hasAuthor>
+              </Book>
+            </hasBook>
+          </Purchase>
+        </hasMadePurchase>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Anna</hasName>
+      </Customer>
+    </hasBuyer>
+    <hasBook>
+      <Book rdf:ID="Twilight">
+        <hasAuthor>
+          <Author rdf:ID="Stephenie_Meyer">
+            <hasWritten>
+              <Book rdf:ID="Twilight_New_Moon">
+                <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Twilight New Moon</hasTitle>
+                <hasAuthor rdf:resource="#Stephenie_Meyer"/>
+                <hasSubject>
+                  <Teens rdf:ID="TeensSubject"/>
+                </hasSubject>
+              </Book>
+            </hasWritten>
+            <hasWritten rdf:resource="#Twilight"/>
+            <hasWritten>
+              <Book rdf:ID="Twilight_Breaking_Dawn">
+                <hasSubject rdf:resource="#TeensSubject"/>
+                <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Twilight Breaking Dawn</hasTitle>
+                <hasAuthor rdf:resource="#Stephenie_Meyer"/>
+              </Book>
+            </hasWritten>
+            <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Stephenie Meyer</hasName>
+          </Author>
+        </hasAuthor>
+        <hasSubject rdf:resource="#TeensSubject"/>
+        <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Twilight</hasTitle>
+      </Book>
+    </hasBook>
+  </Recommendation>
+  <Recommendation rdf:ID="Recommendation_140">
+    <hasBuyer>
+      <Customer rdf:ID="Jeff">
+        <hasMadePurchase>
+          <Purchase rdf:ID="Purchase_5">
+            <hasBuyer rdf:resource="#Jeff"/>
+            <hasBook>
+              <Book rdf:ID="Moby_Dick">
+                <hasSubject>
+                  <Childrens rdf:ID="ChildrensSubject"/>
+                </hasSubject>
+                <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Moby Dick</hasTitle>
+                <hasAuthor>
+                  <Author rdf:ID="Herman_Melville">
+                    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Herman Melville</hasName>
+                    <hasWritten rdf:resource="#Moby_Dick"/>
+                  </Author>
+                </hasAuthor>
+              </Book>
+            </hasBook>
+          </Purchase>
+        </hasMadePurchase>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Jeff</hasName>
+      </Customer>
+    </hasBuyer>
+    <hasBook>
+      <Book rdf:ID="Fly_Fishing">
+        <hasAuthor>
+          <Author rdf:ID="J_R_Hartley">
+            <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >J. R. Hartley</hasName>
+            <hasWritten rdf:resource="#Fly_Fishing"/>
+          </Author>
+        </hasAuthor>
+        <hasSubject>
+          <Fishing rdf:ID="FishingSubject"/>
+        </hasSubject>
+        <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Fly Fishing</hasTitle>
+      </Book>
+    </hasBook>
+  </Recommendation>
+  <Recommendation rdf:ID="Recommendation_136">
+    <hasBook>
+      <Book rdf:ID="The_Hunger_Games_Catching_Fire">
+        <hasAuthor>
+          <Author rdf:ID="Suzanne_Collins">
+            <hasWritten>
+              <Book rdf:ID="The_Hunger_Games">
+                <hasAuthor rdf:resource="#Suzanne_Collins"/>
+                <hasSubject rdf:resource="#TeensSubject"/>
+                <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >The Hunger Games</hasTitle>
+              </Book>
+            </hasWritten>
+            <hasWritten rdf:resource="#The_Hunger_Games_Catching_Fire"/>
+            <hasWritten>
+              <Book rdf:ID="The_Hunger_Games_Mockingjay">
+                <hasAuthor rdf:resource="#Suzanne_Collins"/>
+                <hasSubject rdf:resource="#TeensSubject"/>
+                <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >The Hunger Games Mockingjay</hasTitle>
+              </Book>
+            </hasWritten>
+            <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Suzanne Collins</hasName>
+          </Author>
+        </hasAuthor>
+        <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >The Hunger Games Catching Fire</hasTitle>
+        <hasSubject rdf:resource="#TeensSubject"/>
+      </Book>
+    </hasBook>
+    <hasBuyer>
+      <Customer rdf:ID="Buddy">
+        <hasMadePurchase>
+          <Purchase rdf:ID="Purchase_2">
+            <hasBook rdf:resource="#The_Hunger_Games"/>
+            <hasBuyer rdf:resource="#Buddy"/>
+          </Purchase>
+        </hasMadePurchase>
+        <hasMadePurchase>
+          <Purchase rdf:ID="Purchase_55">
+            <hasBook>
+              <Book rdf:ID="My_Sisters_Keeper">
+                <hasSubject rdf:resource="#TeensSubject"/>
+                <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >My Sisters Keeper</hasTitle>
+                <hasAuthor>
+                  <Author rdf:ID="Jodi_Picoult">
+                    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Jodi Picoult</hasName>
+                    <hasWritten rdf:resource="#My_Sisters_Keeper"/>
+                  </Author>
+                </hasAuthor>
+              </Book>
+            </hasBook>
+            <hasBuyer rdf:resource="#Buddy"/>
+          </Purchase>
+        </hasMadePurchase>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Buddy</hasName>
+      </Customer>
+    </hasBuyer>
+  </Recommendation>
+  <Recommendation rdf:ID="Recommendation_124">
+    <hasBuyer>
+      <Customer rdf:ID="Jacqui">
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Jacqui</hasName>
+        <hasMadePurchase>
+          <Purchase rdf:ID="Purchase_18">
+            <hasBuyer rdf:resource="#Jacqui"/>
+            <hasBook rdf:resource="#Twilight"/>
+          </Purchase>
+        </hasMadePurchase>
+        <hasMadePurchase>
+          <Purchase rdf:ID="Purchase_59">
+            <hasBook rdf:resource="#My_Sisters_Keeper"/>
+            <hasBuyer rdf:resource="#Jacqui"/>
+          </Purchase>
+        </hasMadePurchase>
+        <hasMadePurchase>
+          <Purchase rdf:ID="Purchase_60">
+            <hasBook rdf:resource="#Chess_for_Kids"/>
+            <hasBuyer rdf:resource="#Jacqui"/>
+          </Purchase>
+        </hasMadePurchase>
+      </Customer>
+    </hasBuyer>
+    <hasBook rdf:resource="#The_Hunger_Games_Catching_Fire"/>
+  </Recommendation>
+  <Recommendation rdf:ID="Recommendation_112">
+    <hasBook rdf:resource="#Twilight"/>
+    <hasBuyer rdf:resource="#Buddy"/>
+  </Recommendation>
+  <Recommendation rdf:ID="Recommendation_135">
+    <hasBuyer>
+      <Customer rdf:ID="John">
+        <hasMadePurchase>
+          <Purchase rdf:ID="Purchase_1">
+            <hasBuyer rdf:resource="#John"/>
+            <hasBook rdf:resource="#Twilight"/>
+          </Purchase>
+        </hasMadePurchase>
+        <hasMadePurchase>
+          <Purchase rdf:ID="Purchase_61">
+            <hasBook>
+              <Book rdf:ID="No_Limits_My_Autobiography">
+                <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >No Limits: My Autobiography</hasTitle>
+                <hasAuthor>
+                  <Author rdf:ID="Ian_Poulter">
+                    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Ian Poulter</hasName>
+                    <hasWritten rdf:resource="#No_Limits_My_Autobiography"/>
+                  </Author>
+                </hasAuthor>
+                <hasSubject>
+                  <Football rdf:ID="FootballClass"/>
+                </hasSubject>
+              </Book>
+            </hasBook>
+            <hasBuyer rdf:resource="#John"/>
+          </Purchase>
+        </hasMadePurchase>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >John</hasName>
+      </Customer>
+    </hasBuyer>
+    <hasBook rdf:resource="#The_Hunger_Games"/>
+  </Recommendation>
+  <Recommendation rdf:ID="Recommendation_123">
+    <hasBook>
+      <Book rdf:ID="Harry_Potter_and_the_order_of_the_pheonix">
+        <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Harry Potter and the Orderof the Pheonix</hasTitle>
+        <hasSubject>
+          <Adult rdf:ID="AdultSubject"/>
+        </hasSubject>
+        <hasAuthor>
+          <Author rdf:ID="J_K_Rowling">
+            <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >J. K. Rowling</hasName>
+            <hasWritten>
+              <Book rdf:ID="Harry_Potter_and_the_philosophers_stone">
+                <hasAuthor rdf:resource="#J_K_Rowling"/>
+                <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Harry Potter and the Philisopers Stone</hasTitle>
+                <hasSubject rdf:resource="#AdultSubject"/>
+              </Book>
+            </hasWritten>
+            <hasWritten>
+              <Book rdf:ID="Harry_Potter_and_the_chamber_of_secrets">
+                <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Harry Potter and the chamber of secrets</hasTitle>
+                <hasSubject rdf:resource="#AdultSubject"/>
+                <hasAuthor rdf:resource="#J_K_Rowling"/>
+              </Book>
+            </hasWritten>
+            <hasWritten>
+              <Book rdf:ID="Harry_Potter_and_the_prizoner_of_askaban">
+                <hasAuthor rdf:resource="#J_K_Rowling"/>
+                <hasSubject rdf:resource="#AdultSubject"/>
+                <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Harry Potter and the Prizoner of Askaban</hasTitle>
+              </Book>
+            </hasWritten>
+            <hasWritten>
+              <Book rdf:ID="Harry_Potter_and_the_goblet_of_fire">
+                <hasAuthor rdf:resource="#J_K_Rowling"/>
+                <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Harry Potter and the goblet of fire</hasTitle>
+                <hasSubject rdf:resource="#AdultSubject"/>
+              </Book>
+            </hasWritten>
+            <hasWritten rdf:resource="#Harry_Potter_and_the_order_of_the_pheonix"/>
+            <hasWritten>
+              <Book rdf:ID="Harry_Potter_and_the_half_blood_prince">
+                <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Harry Potter and the half bloody prince</hasTitle>
+                <hasSubject rdf:resource="#AdultSubject"/>
+                <hasAuthor rdf:resource="#J_K_Rowling"/>
+              </Book>
+            </hasWritten>
+            <hasWritten>
+              <Book rdf:ID="Harry_Potter_and_the_deathly_hallows">
+                <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Harry Potter and the deathly hallows</hasTitle>
+                <hasSubject rdf:resource="#AdultSubject"/>
+                <hasAuthor rdf:resource="#J_K_Rowling"/>
+              </Book>
+            </hasWritten>
+          </Author>
+        </hasAuthor>
+      </Book>
+    </hasBook>
+    <hasBuyer>
+      <Customer rdf:ID="Darren">
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Darren</hasName>
+        <hasMadePurchase>
+          <Purchase rdf:ID="Purchase_3">
+            <hasBook rdf:resource="#Harry_Potter_and_the_chamber_of_secrets"/>
+            <hasBuyer rdf:resource="#Darren"/>
+          </Purchase>
+        </hasMadePurchase>
+        <hasMadePurchase>
+          <Purchase rdf:ID="Purchase_56">
+            <hasBuyer rdf:resource="#Darren"/>
+            <hasBook>
+              <Book rdf:ID="Discrete_Mathematics_For_Computing">
+                <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Discrete Mathematics For Computing</hasTitle>
+                <hasSubject>
+                  <Computing rdf:ID="ComputingSubject"/>
+                </hasSubject>
+                <hasAuthor>
+                  <Author rdf:ID="Rod_Haggarty">
+                    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Rod Haggarty</hasName>
+                    <hasWritten rdf:resource="#Discrete_Mathematics_For_Computing"/>
+                  </Author>
+                </hasAuthor>
+              </Book>
+            </hasBook>
+          </Purchase>
+        </hasMadePurchase>
+        <hasMadePurchase>
+          <Purchase rdf:ID="Purchase_57">
+            <hasBuyer rdf:resource="#Darren"/>
+            <hasBook>
+              <Book rdf:ID="AI_The_basics">
+                <hasAuthor>
+                  <Author rdf:ID="Kevin_Warwick">
+                    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Kevin Warwick</hasName>
+                    <hasWritten rdf:resource="#AI_The_basics"/>
+                  </Author>
+                </hasAuthor>
+                <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Artificial Intelligence: The Basics</hasTitle>
+                <hasSubject rdf:resource="#ComputingSubject"/>
+              </Book>
+            </hasBook>
+          </Purchase>
+        </hasMadePurchase>
+      </Customer>
+    </hasBuyer>
+  </Recommendation>
+  <Recommendation rdf:ID="Recommendation_111">
+    <hasBuyer rdf:resource="#John"/>
+    <hasBook rdf:resource="#My_Sisters_Keeper"/>
+  </Recommendation>
+  <Recommendation rdf:ID="Recommendation_139">
+    <hasBuyer rdf:resource="#Anna"/>
+    <hasBook rdf:resource="#My_Sisters_Keeper"/>
+  </Recommendation>
+  <Sports rdf:ID="SportsSubject"/>
+  <Recommendation rdf:ID="Recommendation_130">
+    <hasBuyer rdf:resource="#John"/>
+    <hasBook rdf:resource="#Twilight_Breaking_Dawn"/>
+  </Recommendation>
+  <Recommendation rdf:ID="Recommendation_114">
+    <hasBuyer rdf:resource="#Jacqui"/>
+    <hasBook rdf:resource="#Twilight_New_Moon"/>
+  </Recommendation>
+  <Recommendation rdf:ID="Recommendation_138">
+    <hasBook rdf:resource="#Harry_Potter_and_the_chamber_of_secrets"/>
+    <hasBuyer>
+      <Customer rdf:ID="Ben">
+        <hasMadePurchase>
+          <Purchase rdf:ID="Purchase_54">
+            <hasBook rdf:resource="#Discrete_Mathematics_For_Computing"/>
+            <hasBuyer rdf:resource="#Ben"/>
+          </Purchase>
+        </hasMadePurchase>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Ben</hasName>
+      </Customer>
+    </hasBuyer>
+  </Recommendation>
+  <Recommendation rdf:ID="Recommendation_126">
+    <hasBuyer rdf:resource="#Jacqui"/>
+    <hasBook rdf:resource="#The_Hunger_Games_Mockingjay"/>
+  </Recommendation>
+  <Recommendation rdf:ID="Recommendation_141">
+    <hasBuyer rdf:resource="#Buddy"/>
+    <hasBook rdf:resource="#Chess_for_Kids"/>
+  </Recommendation>
+  <Recommendation rdf:ID="Recommendation_125">
+    <hasBuyer rdf:resource="#Darren"/>
+    <hasBook rdf:resource="#Harry_Potter_and_the_half_blood_prince"/>
+  </Recommendation>
+  <Fiction rdf:ID="FictionSubject"/>
+  <Recommendation rdf:ID="Recommendation_113">
+    <hasBook rdf:resource="#No_Limits_My_Autobiography"/>
+    <hasBuyer rdf:resource="#Jacqui"/>
+  </Recommendation>
+  <Recommendation rdf:ID="Recommendation_137">
+    <hasBook rdf:resource="#The_Hunger_Games_Mockingjay"/>
+    <hasBuyer rdf:resource="#Buddy"/>
+  </Recommendation>
+  <Recommendation rdf:ID="Recommendation_129">
+    <hasBuyer rdf:resource="#John"/>
+    <hasBook rdf:resource="#Twilight_New_Moon"/>
+  </Recommendation>
+  <Recommendation rdf:ID="Recommendation_117">
+    <hasBook rdf:resource="#AI_The_basics"/>
+    <hasBuyer rdf:resource="#Ben"/>
+  </Recommendation>
+  <Recommendation rdf:ID="Recommendation_116">
+    <hasBuyer rdf:resource="#Anna"/>
+    <hasBook>
+      <Book rdf:ID="The_Right_Way_to_Play_Chess">
+        <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >The Right Way to Play Chess</hasTitle>
+        <hasSubject rdf:resource="#ChessSubject"/>
+        <hasAuthor>
+          <Author rdf:ID="David_Prichard">
+            <hasWritten rdf:resource="#The_Right_Way_to_Play_Chess"/>
+            <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >David Brine Pritchard</hasName>
+          </Author>
+        </hasAuthor>
+      </Book>
+    </hasBook>
+  </Recommendation>
+  <Recommendation rdf:ID="Recommendation_132">
+    <hasBook rdf:resource="#The_Hunger_Games_Catching_Fire"/>
+    <hasBuyer rdf:resource="#John"/>
+  </Recommendation>
+  <Recommendation rdf:ID="Recommendation_120">
+    <hasBuyer rdf:resource="#Darren"/>
+    <hasBook rdf:resource="#Harry_Potter_and_the_philosophers_stone"/>
+  </Recommendation>
+  <Non_Fiction rdf:ID="NonFictionSubject"/>
+  <Recommendation rdf:ID="Recommendation_128">
+    <hasBook rdf:resource="#The_Hunger_Games"/>
+    <hasBuyer rdf:resource="#Jacqui"/>
+  </Recommendation>
+  <Hobbies rdf:ID="HobbiesSubject"/>
+  <Recommendation rdf:ID="Recommendation_127">
+    <hasBook rdf:resource="#Harry_Potter_and_the_deathly_hallows"/>
+    <hasBuyer rdf:resource="#Darren"/>
+  </Recommendation>
+  <Recommendation rdf:ID="Recommendation_115">
+    <hasBuyer rdf:resource="#Jacqui"/>
+    <hasBook rdf:resource="#Twilight_Breaking_Dawn"/>
+  </Recommendation>
+  <Recommendation rdf:ID="Recommendation_131">
+    <hasBuyer rdf:resource="#Buddy"/>
+    <hasBook rdf:resource="#Twilight_New_Moon"/>
+  </Recommendation>
+  <Recommendation rdf:ID="Recommendation_119">
+    <hasBuyer rdf:resource="#John"/>
+    <hasBook>
+      <Book rdf:ID="Match_of_the_day">
+        <hasAuthor>
+          <Author rdf:ID="Nick_Constable">
+            <hasWritten rdf:resource="#Match_of_the_day"/>
+            <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Nick Conastable</hasName>
+          </Author>
+        </hasAuthor>
+        <hasSubject rdf:resource="#FootballClass"/>
+        <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Match of the Day: 50 Years of Football</hasTitle>
+      </Book>
+    </hasBook>
+  </Recommendation>
+  <Recommendation rdf:ID="Recommendation_110">
+    <hasBuyer rdf:resource="#John"/>
+    <hasBook rdf:resource="#Chess_for_Kids"/>
+  </Recommendation>
+  <Recommendation rdf:ID="Recommendation_134">
+    <hasBuyer rdf:resource="#John"/>
+    <hasBook rdf:resource="#The_Hunger_Games_Mockingjay"/>
+  </Recommendation>
+  <Recommendation rdf:ID="Recommendation_122">
+    <hasBook rdf:resource="#Harry_Potter_and_the_goblet_of_fire"/>
+    <hasBuyer rdf:resource="#Darren"/>
+  </Recommendation>
+  <Recommendation rdf:ID="Recommendation_118">
+    <hasBook rdf:resource="#The_Right_Way_to_Play_Chess"/>
+    <hasBuyer rdf:resource="#Jacqui"/>
+  </Recommendation>
+  <Golf rdf:ID="GolfSubject"/>
+  <Recommendation rdf:ID="Recommendation_121">
+    <hasBuyer rdf:resource="#Darren"/>
+    <hasBook rdf:resource="#Harry_Potter_and_the_prizoner_of_askaban"/>
+  </Recommendation>
+  <Recommendation rdf:ID="Recommendation_133">
+    <hasBook rdf:resource="#Twilight_Breaking_Dawn"/>
+    <hasBuyer rdf:resource="#Buddy"/>
+  </Recommendation>
+  <Customer rdf:ID="David">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >David</hasName>
+    <hasMadePurchase>
+      <Purchase rdf:ID="Purchase_17">
+        <hasBuyer rdf:resource="#David"/>
+        <hasBook rdf:resource="#Moby_Dick"/>
+      </Purchase>
+    </hasMadePurchase>
+    <hasMadePurchase>
+      <Purchase rdf:ID="Purchase_4">
+        <hasBuyer rdf:resource="#David"/>
+        <hasBook rdf:resource="#Fly_Fishing"/>
+      </Purchase>
+    </hasMadePurchase>
+  </Customer>
+  <Book rdf:ID="RHS_Gardening">
+    <hasAuthor>
+      <Author rdf:ID="Ian_Spence">
+        <hasWritten rdf:resource="#RHS_Gardening"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Ian Spence</hasName>
+      </Author>
+    </hasAuthor>
+    <hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >RHS Gardening Throughout the Years</hasTitle>
+    <hasSubject>
+      <Gardening rdf:ID="GardeningSubject"/>
+    </hasSubject>
+  </Book>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4.8, Build 629)  http://protege.stanford.edu -->

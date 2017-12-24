@@ -1,0 +1,91 @@
+Prefix(:=<http://www.semanticweb.org/stefanrudvin/ontologies/2017/8/untitled-ontology-5#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.semanticweb.org/stefanrudvin/ontologies/2017/8/untitled-ontology-5>
+
+Declaration(Class(:CheeseTopping))
+Declaration(Class(:DeepPan))
+Declaration(Class(:DomainConcept))
+Declaration(Class(:MeatTopping))
+Declaration(Class(:MushroomTopping))
+Declaration(Class(:Pizza))
+Declaration(Class(:PizzaBase))
+Declaration(Class(:PizzaTopping))
+Declaration(Class(:RealItalianPizza))
+Declaration(Class(:ThinAndCrispy))
+Declaration(Class(:TomatoTopping))
+Declaration(Class(:VegetableTopping))
+Declaration(ObjectProperty(:hasBase))
+Declaration(ObjectProperty(:hasTopping))
+############################
+#   Object Properties
+############################
+
+# Object Property: :hasBase (:hasBase)
+
+SubObjectPropertyOf(:hasBase owl:topObjectProperty)
+
+
+############################
+#   Classes
+############################
+
+# Class: :CheeseTopping (:CheeseTopping)
+
+SubClassOf(:CheeseTopping :PizzaTopping)
+
+# Class: :DeepPan (:DeepPan)
+
+SubClassOf(:DeepPan :PizzaBase)
+
+# Class: :MeatTopping (:MeatTopping)
+
+SubClassOf(:MeatTopping :PizzaTopping)
+
+# Class: :MushroomTopping (:MushroomTopping)
+
+SubClassOf(:MushroomTopping :VegetableTopping)
+DisjointClasses(:MushroomTopping :TomatoTopping)
+
+# Class: :Pizza (:Pizza)
+
+SubClassOf(:Pizza :DomainConcept)
+SubClassOf(:Pizza ObjectSomeValuesFrom(:hasBase :PizzaBase))
+SubClassOf(:Pizza ObjectSomeValuesFrom(:hasTopping :PizzaTopping))
+DisjointClasses(:Pizza :PizzaBase)
+DisjointClasses(:Pizza :PizzaTopping)
+
+# Class: :PizzaBase (:PizzaBase)
+
+SubClassOf(:PizzaBase :DomainConcept)
+DisjointClasses(:PizzaBase :PizzaTopping)
+
+# Class: :PizzaTopping (:PizzaTopping)
+
+SubClassOf(:PizzaTopping :DomainConcept)
+
+# Class: :RealItalianPizza (:RealItalianPizza)
+
+SubClassOf(:RealItalianPizza :Pizza)
+SubClassOf(:RealItalianPizza ObjectSomeValuesFrom(:hasBase :ThinAndCrispy))
+
+# Class: :ThinAndCrispy (:ThinAndCrispy)
+
+SubClassOf(:ThinAndCrispy :PizzaBase)
+
+# Class: :TomatoTopping (:TomatoTopping)
+
+SubClassOf(:TomatoTopping :VegetableTopping)
+
+# Class: :VegetableTopping (:VegetableTopping)
+
+SubClassOf(:VegetableTopping :PizzaTopping)
+
+
+DisjointClasses(:CheeseTopping :MeatTopping :VegetableTopping)
+)

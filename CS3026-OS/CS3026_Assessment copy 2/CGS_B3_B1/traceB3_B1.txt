@@ -1,0 +1,12 @@
+Created Dir myfirstdir.
+Created Dir myseconddir.
+Created Dir mythirddir.
+Printing results from calling mylistdir("/myfirstdir/myseconddir": --- 
+mythirddir
+
+
+Moved to dir Index: 5
+Printing results from calling mylistdir("/myfirstdir/myseconddir": --- 
+mythirddir
+testfile.txt
+

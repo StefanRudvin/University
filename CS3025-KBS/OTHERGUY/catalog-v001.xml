@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1415800210576" name="duplicate:http://www.cs4021/bookstore.owl" uri="Assignment%20Part%201.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1415800210576" name="duplicate:http://www.cs4021/bookstore.owl" uri="Assignment%20Part%202.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1415800210576" name="duplicate:http://www.cs4021/bookstore.owl" uri="Assignment%20Part%203.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1415800210576" name="duplicate:http://www.cs4021/bookstore.owl" uri="Start%20Point.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1415800210576" name="duplicate:http://www.cs4021/bookstoreTest1.owl" uri="Assignment%20Part%204.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1415800210576" name="duplicate:http://www.cs4021/bookstoreTest1.owl" uri="bookstoreTest3.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1415800210576" name="shadowed:http://www.cs4021/bookstoreTest1.owl" uri="CS3019Assessment/bookstoreTest3.owl"/>
+    </group>
+</catalog>
