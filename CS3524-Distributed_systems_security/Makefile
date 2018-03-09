@@ -1,6 +1,22 @@
-CS3524_HOME="$(HOME)/3524"
+CS3524_HOME="$(HOME)/Dropbox/University/CS3524-Distributed_systems_security/"
 
 RM_FLAGS="-f"
+
+
+mud:
+	javac Assessment/mud/Edge.java; \
+	javac Assessment/mud/MUD.java; \
+	javac Assessment/mud/Vertex.java; \
+    javac Assessment/mud/MUDServerMainline.java; \
+    javac Assessment/mud/MUDService.java; \
+    javac Assessment/mud/MUDServiceImpl.java; \
+    javac Assessment/mud/MUDClient.java
+
+mudclean:
+	cd Assessment/mud; \
+	rm $(RM_FLAGS) *.class *~; \
+	cd $(CS3524_HOME)
+
 
 rmishout:
 	javac practicals/rmishout/ShoutServiceImpl.java; \
@@ -9,6 +25,28 @@ rmishout:
 
 rmishoutclean:
 	cd practicals/rmishout; \
+	rm $(RM_FLAGS) *.class *~; \
+	cd $(CS3524_HOME)
+
+auction:
+	javac practicals/auction/BidderMainline.java
+	javac practicals/auction/AuctioneerImpl.java
+	javac practicals/auction/BidderImpl.java; \
+	javac practicals/auction/AuctioneerMainline.java; \
+	javac practicals/auction/TimeOut.java; \
+
+auctionclean:
+	cd practicals/auction; \
+	rm $(RM_FLAGS) *.class *~; \
+	cd $(CS3524_HOME)
+
+
+irc:
+	javac practicals/irc/ReqTokenizer.java
+	javac practicals/irc/ChatServer.java; \
+
+ircclean:
+	cd practicals/irc; \
 	rm $(RM_FLAGS) *.class *~; \
 	cd $(CS3524_HOME)
 
@@ -56,30 +94,6 @@ tpgtar:	tpgclean
 ## Revised for java 1.5 2008/01/28
 ###########################################################
 
-irc:
-	javac cs3524/examples/irc/*.java
-
-ircclean:
-	cd cs3524/examples/irc; \
-	rm $(RM_FLAGS) *.class *~; \
-	cd $(CS3524_HOME)
-
-irctar:	ircclean
-	rm $(RM_FLAGS) irc.tgz; \
-	tar cvf - cs3524/examples/irc | gzip > irc.tgz
-
-ircsoln:
-	javac cs3524/solutions/irc/ReqTokenizer.java; \
-	javac cs3524/solutions/irc/ChatServer.java; \
-
-ircsolnclean:
-	cd cs3524/solutions/irc; \
-	rm $(RM_FLAGS) *.class *~; \
-	cd $(CS3524_HOME)
-
-ircsolntar:	ircsolnclean
-	rm $(RM_FLAGS) ircsoln.tgz; \
-	tar cvf - cs3524/solutions/irc | gzip > ircsoln.tgz
 
 ###########################################################
 ## The College example and solution

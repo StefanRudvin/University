@@ -23,7 +23,7 @@ public class ShoutServerMainline
             // specify at which port the rmiregistry is listening for binding and
             // lookup requests
 
-            int registryport = Integer.parseInt( args[0] ) ;
+            int registryPort = Integer.parseInt( args[0] ) ;
 
             // this is the port for our shout service
             int serviceport = Integer.parseInt( args[1] );
@@ -57,7 +57,7 @@ public class ShoutServerMainline
 
             // create a URL that uniquely identifies the registered service
 
-            String regURL = "rmi://" + hostname + ":" + registryport + "/ShoutService";
+            String regURL = "rmi://" + hostname + ":" + registryPort + "/ShoutService";
 
             System.out.println("Registering " + regURL );
 
